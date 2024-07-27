@@ -1,0 +1,12 @@
+# Ignore the Responses folder
+Responses/
+
+# Ignore the .env file
+.env
+
+# Ignore other files and folders as needed
+# For example:
+# logs/
+# *.log
+# *.pyc
+# __pycache__/

@@ -1,0 +1,18 @@
+
+
+This looks like a good eval framework 
+https://github.com/EleutherAI/lm-evaluation-harness
+
+
+ Llama-2 [84], Llama [83], Llama-3 [2],
+Qwen1.5 [80], Qwen [8], Mistral [39], Mixtral [40], Yi [98], Gemma [79], Falcon [3], Phi [48],
+Pythia [11], BLOOM [92], GPT-Neo/J [12], OPT [100], MPT [81], XGLM [51], CodeLlama [71],
+StarCoder [46], StarCoder2 [55], DeepSeek-Coder [30]
+
+
+https://arxiv.org/pdf/2405.10938
+contains models along with parameter and compute levels
+
+
+estimate probabilies with token probabilites 
+
