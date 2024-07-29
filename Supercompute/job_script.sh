@@ -1,18 +1,29 @@
 #!/bin/bash
-#SBATCH --job-name=my_python_job  # Job name
-#SBATCH --output=output_%j.txt    # Output file (%j will be replaced with the job ID)
-#SBATCH --error=error_%j.txt      # Error file (%j will be replaced with the job ID)
-#SBATCH --time=01:00:00           # Time limit (hh:mm:ss)
-#SBATCH --nodes=1                 # Number of nodes
-#SBATCH --ntasks=1                # Number of tasks
-#SBATCH --cpus-per-task=4         # Number of CPU cores per task
-#SBATCH --mem=4GB                 # Memory per node
+#SBATCH --job-name=my_python_job
+#SBATCH --output=output_%j.txt
+#SBATCH --error=error_%j.txt
+#SBATCH --time=01:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=4GB
 
-# Load necessary modules
-module load python/3.8  # Adjust based on your required Python version
+# Load Anaconda module
+module load anaconda/2023a
 
-# Activate your virtual environment if needed
-source ~/myenv/bin/activate  # Adjust based on your virtual environment path
+# Activate the Conda environment
+source activate myenv
+
+# Print debug information
+echo "Job started at $(date)"
+echo "Running on $(hostname)"
+echo "SLURM_JOB_ID = $SLURM_JOB_ID"
+echo "SLURM_JOB_NODELIST = $SLURM_JOB_NODELIST"
+echo "SLURM_NNODES = $SLURM_NNODES"
+echo "SLURM_CPUS_ON_NODE = $SLURM_CPUS_ON_NODE"
 
 # Run your Python script
-python my_script.py
+python test_script.py
+
+# Print debug information
+echo "Job finished at $(date)"
