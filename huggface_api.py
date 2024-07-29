@@ -4,7 +4,7 @@ import requests
 
 from dotenv import load_dotenv
 import os
-
+#%%
 # Load dataset
 load_dotenv()
 huggingface_api_key = os.getenv("HUGGINGFACE_API_KEY")
@@ -19,13 +19,24 @@ with open("PredictionQuestions.csv", mode="r", encoding="utf-8") as file:
 # Huggingface API setup
 API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-v0.1"
 headers = {"Authorization": f"Bearer {huggingface_api_key}"}
+print("Huggingface API Key:", huggingface_api_key) 
 
-
+#%%
 def query(payload):
     response = requests.post(API_URL, headers=headers, json=payload)
     return response.json()
 
+# Ensure the Responses directory exists
+responses_dir = "Responses"
+if not os.path.exists(responses_dir):
+    os.makedirs(responses_dir)
 
+# Ensure the responses file exists
+responses_file = os.path.join(responses_dir, "mistral_responses.txt")
+if not os.path.isfile(responses_file):
+    open(responses_file, 'w').close()
+
+#%%
 print(rows[1])
 for row in rows:
     question = row[0]

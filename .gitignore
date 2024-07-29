@@ -1,6 +1,6 @@
 # Ignore the Responses folder
 Responses/
-
+Models/
 # Ignore the .env file
 .env
 
