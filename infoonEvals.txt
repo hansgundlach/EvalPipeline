@@ -16,3 +16,8 @@ contains models along with parameter and compute levels
 
 estimate probabilies with token probabilites 
 
+
+
+#run opeb sourc models on the cloud with replicate 
+https://replicate.com/search?query=Qwen
+

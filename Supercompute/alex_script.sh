@@ -34,4 +34,4 @@ conda activate py310
 #python citations_main.py -d -f data/open_access_paper_ids.csv -i $job_number -n $total_jobs
 #python citations_main.py -d -i $job_number -n $total_jobs
 # python question_set.py
-python test_script.py
+python debug_load.py
