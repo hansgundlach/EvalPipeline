@@ -67,6 +67,7 @@ prompt = "Once upon a time"
 generated_text = generate_text(prompt)
 
 
+os.makedirs("Responses", exist_ok=True)
 # save generated text to a file
 with open("Responses/mistral_device.txt", "w") as f:
     f.write(generated_text)

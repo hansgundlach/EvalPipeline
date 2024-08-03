@@ -14,7 +14,7 @@ conda init bash
 
 HF_USER_DIR="/home/gridsan/$(whoami)/"
 # HF_USER_DIR="/home/gridsan/$(whoami)/futuretech_shared/atrisovic/osfm/paper_analysis_toolkit/"
-# HF_LOCAL_DIR="/state/partition1/user/$(whoami)/cache/huggingface"
+HF_LOCAL_DIR="/state/partition1/user/$(whoami)/cache/huggingface"
 # mkdir -p $HF_LOCAL_DIR
 # rsync -a --ignore-existing $HF_USER_DIR/ ${HF_LOCAL_DIR}
 export HF_HOME=${HF_LOCAL_DIR}
@@ -28,7 +28,8 @@ total_jobs=$2
 # conda update tensorflow
 conda activate py310
 
-
+# Navigate to the directory containing your scripts and models
+cd /home/gridsan/$(whoami)/EvalPipeline
 
 #python affiliations_main.py -d -f data/temp_open_access_paper_ids.csv -i $job_number -n $total_jobs
 #python citations_main.py -d -f data/open_access_paper_ids.csv -i $job_number -n $total_jobs
