@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+set -e
 
 #SBATCH -o job_logs/log-%j
 #SBATCH --gres=gpu:volta:1
@@ -25,9 +27,12 @@ export WANDB_DISABLED="true"
 job_number=$1
 total_jobs=$2
 
+echo "Setting up Environment"
 # conda update tensorflow
 conda activate py310
 
+
+echo "I'm navigating to the directory {/home/gridsan/$(whoami)/EvalPipeline}"
 # Navigate to the directory containing your scripts and models
 cd /home/gridsan/$(whoami)/EvalPipeline
 
@@ -35,4 +40,4 @@ cd /home/gridsan/$(whoami)/EvalPipeline
 #python citations_main.py -d -f data/open_access_paper_ids.csv -i $job_number -n $total_jobs
 #python citations_main.py -d -i $job_number -n $total_jobs
 # python question_set.py
-python debug_load.py
+python gpt2_from_load.py
