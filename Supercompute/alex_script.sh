@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x
 # set -e
-rm -f "$log_directory"/*
+rm -f "$job_logs"/*
 #SBATCH -o job_logs/log-%j
 #SBATCH --gres=gpu:volta:1
 #SBATCH -c 8
