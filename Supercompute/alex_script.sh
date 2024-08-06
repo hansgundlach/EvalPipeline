@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -x
 # set -e
-rm -f "$job_logs"/*
+
 #SBATCH -o job_logs/log-%j
 #SBATCH --gres=gpu:volta:1
 #SBATCH -c 8
@@ -40,6 +40,8 @@ echo "I'm navigating to the directory {/home/gridsan/$(whoami)/EvalPipeline}"
 # Navigate to the directory containing your scripts and models
 cd /home/gridsan/$(whoami)/EvalPipeline
 
+
+rm -f "$job_logs"/*
 #python affiliations_main.py -d -f data/temp_open_access_paper_ids.csv -i $job_number -n $total_jobs
 #python citations_main.py -d -f data/open_access_paper_ids.csv -i $job_number -n $total_jobs
 #python citations_main.py -d -i $job_number -n $total_jobs
