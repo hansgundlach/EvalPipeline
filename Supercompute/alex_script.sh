@@ -27,6 +27,10 @@ export WANDB_DISABLED="true"
 job_number=$1
 total_jobs=$2
 
+# Check available environments
+echo "Available conda environments:"
+conda info --envs
+
 echo "Setting up Environment"
 # conda update tensorflow
 conda activate py310
@@ -39,5 +43,6 @@ cd /home/gridsan/$(whoami)/EvalPipeline
 #python affiliations_main.py -d -f data/temp_open_access_paper_ids.csv -i $job_number -n $total_jobs
 #python citations_main.py -d -f data/open_access_paper_ids.csv -i $job_number -n $total_jobs
 #python citations_main.py -d -i $job_number -n $total_jobs
-# python question_set.py
+# python question_set.py:Q
+
 python gpt2_from_load.py
